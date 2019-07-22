@@ -14,7 +14,7 @@ ARGV.each_with_index do |text, i|
 end
 
 Xmap_Size ||= Words_Number
-Char_Weight ||= 0.25
+Char_Weight ||= 0
 
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
