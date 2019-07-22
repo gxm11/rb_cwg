@@ -37,7 +37,7 @@ until i == Words_Size || i == 0
     Choices[i] += 1
     xmap.xwords.pop
   else
-    xmap.xwords.push(cs[Choices[i]])
+    xmap.xwords << cs[Choices[i]]
     i += 1
   end
   _counts += 1
@@ -48,8 +48,5 @@ puts "Run %d times, cost %.2f sec." % [_counts, Time.now - t]
 if i == 0
   puts "Failed to generate."
 else
-  canvas = xmap.render
-  File.open("./crossword.txt", "w") do |f|
-    f << canvas.join("\n")
-  end
+  File.write("./crossword.txt", xmap.render.join("\n"))
 end
