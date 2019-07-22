@@ -27,6 +27,4 @@ Script finished with faliure means there's no solution for the word list.
 Higher Performance. (Or you think ruby is fast enough?)
 
 ## Example
-The `crossword.txt` in project folder is generate by `ruby main.rb`. 
-
-Try `ruby main.rb -p 0.25 -s 19` to get Xmap with size 19x19.
+The `crossword.txt` in project folder is generate by `ruby main.rb -p 0.25 -s 19`.
