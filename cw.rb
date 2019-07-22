@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-# 目前的问题：新词覆盖了旧词，应该进一步锁定区域（通过修改 consist_after?）
-
 Xword = Struct.new(:word, :x, :y, :vertical) do
   def size
     self.word.size
