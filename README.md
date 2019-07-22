@@ -1,6 +1,9 @@
 # rb_cwg
 Ruby crossword generator.
 
+## Why
+I cannot find a good crossword generator on github, so I do it.
+
 ## Run
 1. Put your word list in `word_list.txt`
 2. Pass the size of Xmap to `main.rb`, or using the length of word list.

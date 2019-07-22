@@ -1,17 +1,16 @@
 # encoding: utf-8
 
-Xword = Struct.new(:word, :x, :y, :vertical) do
-  def size
-    self.word.size
-  end
-
-  def chars
-    self.word.split("")
-  end
-end
-
 class Xmap
-  attr_reader :max_size
+  Xword = Struct.new(:word, :x, :y, :vertical) do
+    def size
+      self.word.size
+    end
+
+    def chars
+      self.word.split("")
+    end
+  end
+
   attr_reader :xwords
 
   def initialize(max_size, first_word = "")
