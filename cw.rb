@@ -135,6 +135,6 @@ class Xmap
 
     puts "Xmap Shape: #{x_max - x_min + 1} x #{y_max - y_min + 1}"
     puts canvas.join("\n")
-    canvas
+    return canvas
   end
 end
