@@ -23,9 +23,9 @@ class Xmap
 
   def make_choices(text)
     choices = []
+    a_text = text.split("")
     @xwords.each do |xword|
       a_xword = xword.chars
-      a_text = text.split("")
       a = a_xword & a_text
       next if a.empty?
       # select all possible xwords

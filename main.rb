@@ -3,7 +3,7 @@ require_relative "cw"
 
 # Read word_list
 Words = File.read("./word_list.txt").split(/\s*\n/)
-Words_Number = Words.size
+Words_Size = Words.size
 
 # Read args
 ARGV.each_with_index do |text, i|
@@ -13,13 +13,13 @@ ARGV.each_with_index do |text, i|
   end
 end
 
-Xmap_Size ||= Words_Number
+Xmap_Size ||= Words_Size
 Char_Weight ||= 0
 
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
 
-Choices = [0] * Words_Number
+Choices = [0] * Words_Size
 
 xmap = Xmap.new(Xmap_Size, Words[0])
 
@@ -28,7 +28,7 @@ _counts = 0
 t = Time.now
 
 # try to put each word in Xmap
-until i == Words_Number || i == 0
+until i == Words_Size || i == 0
   w = Words[i]
   cs = xmap.make_choices(w)
   if Choices[i] == cs.size
