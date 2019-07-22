@@ -1,21 +1,33 @@
 # encoding: utf-8
 require_relative "cw"
 
-Words = File.read("./word_list.txt").split(/\s*\n/)[0..30]
-
+# Read word_list
+Words = File.read("./word_list.txt").split(/\s*\n/)
 Words_Number = Words.size
-Words.sort_by! { |w| -w.size }
+
+# Read args
+ARGV.each_with_index do |text, i|
+  case text
+  when "-s" then Xmap_Size = ARGV[i + 1].to_i
+  when "-p" then Char_Weight = ARGV[i + 1].to_f
+  end
+end
+
+Xmap_Size ||= Words_Number
+Char_Weight ||= 0.25
+
+# Sort words
+Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
+
 Choices = [0] * Words_Number
 
+xmap = Xmap.new(Xmap_Size, Words[0])
+
+i = 1
 _counts = 0
-
-xmap_size = ARGV[0] ? ARGV[0].to_i : Words_Number
-
-i = 0
-xmap = Xmap.new(xmap_size, Words[i])
-i += 1
 t = Time.now
 
+# try to put each word in Xmap
 until i == Words_Number || i == 0
   w = Words[i]
   cs = xmap.make_choices(w)
