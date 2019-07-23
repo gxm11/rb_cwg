@@ -9,7 +9,7 @@ ARGV.each_with_index do |text, i|
   when "-o" then Output_File = ARGV[i + 1]
   when "-s" then Xmap_Size = ARGV[i + 1].to_i
   when "-p" then Char_Weight = ARGV[i + 1].to_f
-  when /^\-/
+  when "-h"
     puts <<~HELP
            Github: https://github.com/gxm11/rb_cwg
            Usage:

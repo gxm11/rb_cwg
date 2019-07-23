@@ -12,10 +12,11 @@ ruby main.rb -i <Input Word List> -o <Output Json> -s <Max Xmap Size> -p <Tuning
 
 | Parameter | Default | Description |
 |:---------:|:-------:|:-----------:|
-|`-i`|`"./word_list.txt"`|Input word list, each word takes one line.|
-|`-o`|`"./crossword.json"`|Output json file.|
+|`-i`|`./word_list.txt`|Input word list, each word takes one line.|
+|`-o`|`./crossword.json`|Output json file.|
 |`-s`|`256`|Maximum size of crossword map.|
 |`-p`|`0.1`|Tuning parameter.|
+|`-h`||Help Message.|
 
 ## Method
 1. Sort the word list by their length and chars variety (with ratio `p`).

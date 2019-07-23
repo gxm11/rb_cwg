@@ -1,4 +1,4 @@
-Run 7699 times, cost 3.23 sec.
+Run 7699 iterations in 3.09 sec.
 Xmap Shape: 19 x 19
 ...b.......b..b...s
 sperm...f.camelot.t
