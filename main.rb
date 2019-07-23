@@ -30,6 +30,7 @@ Output_File ||= "./crossword.json"
 # Read word_list
 Words = File.read(Input_File).split(/\s*\n/)
 Words_Size = Words.size
+puts "Load #{Words_Size} words."
 
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
