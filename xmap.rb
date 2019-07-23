@@ -50,8 +50,9 @@ class Xmap
   end
 
   def consist_after?(new_xword)
+    new_xword_vertical = new_xword.vertical
     # 1. 判断是否出界
-    if new_xword.vertical
+    if new_xword_vertical
       y_min = (@xwords + [new_xword]).collect(&:y).min
       y_max = (@xwords + [new_xword]).collect { |xw| xw.y + (xw.vertical ? xw.size : 1) - 1 }.max
       if y_max - y_min >= @max_size
@@ -66,12 +67,12 @@ class Xmap
     end
     # 平行测试
     @xwords.each do |xw|
-      next if new_xword.vertical != xw.vertical
+      next if new_xword_vertical != xw.vertical
       # 4 个 临界点的坐标
-      x_min = new_xword.vertical ? new_xword.x - 1 : new_xword.x - xw.size
-      x_max = new_xword.vertical ? new_xword.x + 1 : new_xword.x + new_xword.size
-      y_min = new_xword.vertical ? new_xword.y - xw.size : new_xword.y - 1
-      y_max = new_xword.vertical ? new_xword.y + new_xword.size : new_xword.y + 1
+      x_min = new_xword.x + (new_xword_vertical ? -1 : -xw.size)
+      x_max = new_xword.x + (new_xword_vertical ? 1 : new_xword.size)
+      y_min = new_xword.y + (new_xword_vertical ? -xw.size : -1)
+      y_max = new_xword.y + (new_xword_vertical ? new_xword.size : 1)
       # 超出临界点之外
       next if xw.x < x_min || xw.x > x_max || xw.y < y_min || xw.y > y_max
       # 在临界点上
@@ -82,8 +83,8 @@ class Xmap
     end
     # 垂直测试
     @xwords.each do |xw|
-      next if new_xword.vertical == xw.vertical
-      h, v = new_xword.vertical ? [xw, new_xword] : [new_xword, xw]
+      next if new_xword_vertical == xw.vertical
+      h, v = new_xword_vertical ? [xw, new_xword] : [new_xword, xw]
       # 4 个 临界点的坐标
       x_min = h.x - 1
       x_max = h.x + h.size
