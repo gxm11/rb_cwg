@@ -12,11 +12,14 @@ class Xmap
     end
   end
 
+  Cache_Maxmin = Struct.new(:x_min, :x_max, :y_min, :y_max)
+
   attr_reader :xwords
 
   def initialize(max_size, first_word = "")
     @max_size = max_size
     @xwords = []
+    @cache_maxmin = Cache_Maxmin.new(0, 0, 0, 0)
     if !first_word.empty?
       @xwords << Xword.new(first_word, 0, 0, false)
       refresh_xwords_maxmin
@@ -24,10 +27,10 @@ class Xmap
   end
 
   def refresh_xwords_maxmin
-    @xwords_maxmin = [
-      @xwords.collect(&:x).min, @xwords.collect { |xw| xw.x + (xw.vertical ? 1 : xw.size) - 1 }.max,
-      @xwords.collect(&:y).min, @xwords.collect { |xw| xw.y + (xw.vertical ? xw.size : 1) - 1 }.max,
-    ]
+    @cache_maxmin.x_min = @xwords.collect(&:x).min
+    @cache_maxmin.x_max = @xwords.collect { |xw| xw.x + (xw.vertical ? 1 : xw.size) - 1 }.max
+    @cache_maxmin.y_min = @xwords.collect(&:y).min
+    @cache_maxmin.y_max = @xwords.collect { |xw| xw.y + (xw.vertical ? xw.size : 1) - 1 }.max
   end
 
   def push(xword)
@@ -77,14 +80,14 @@ class Xmap
     new_xword_vertical = new_xword.vertical
     # 1. 判断是否出界
     if new_xword_vertical
-      y_min = [@xwords_maxmin[2], new_xword.y].min
-      y_max = [@xwords_maxmin[3], new_xword.y + (new_xword_vertical ? new_xword.size : 1)].max
+      y_min = [@cache_maxmin.y_min, new_xword.y].min
+      y_max = [@cache_maxmin.y_max, new_xword.y + (new_xword_vertical ? new_xword.size : 1)].max
       if y_max - y_min >= @max_size
         return false
       end
     else
-      x_min = [@xwords_maxmin[0], new_xword.x].min
-      x_max = [@xwords_maxmin[1], new_xword.x + (new_xword_vertical ? 1 : new_xword.size) - 1].max
+      x_min = [@cache_maxmin.x_min, new_xword.x].min
+      x_max = [@cache_maxmin.x_max, new_xword.x + (new_xword_vertical ? 1 : new_xword.size) - 1].max
       if x_max - x_min >= @max_size
         return false
       end
@@ -121,19 +124,14 @@ class Xmap
       next if new_xword_vertical == xw.vertical
       h, v = new_xword_vertical ? [xw, new_xword] : [new_xword, xw]
       dx, dy = v.x - h.x, v.y - h.y
+      next if dx < x_min || dy > y_max
       # 4 个 临界点的坐标
       x_max = h.size
       y_min = -v.size
       # 超出临界点之外
-      next if dx < x_min || dx > x_max || dy < y_min || dy > y_max
+      next if (dx > x_max || dy < y_min)
       # 在临界点上
-      if dx == x_min || dx == x_max
-        next if dy == y_min || dy == y_max
-        return false
-      end
-      if dy == y_min || dy == y_max
-        return false
-      end
+      next if (dx == x_min || dx == x_max) && (dy == y_min || dy == y_max)
       # 有交叉点
       next if h.word[dx] == v.word[-dy]
       return false
@@ -263,7 +261,7 @@ puts "Load #{Words_Size} words."
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
 
-Choices = [0] * Words_Size
+Trace = [0] * Words_Size
 
 xmap = Xmap.new(Xmap_Size, Words[0])
 
@@ -274,14 +272,14 @@ t = Time.now
 # try to put each word in Xmap
 until i == Words_Size || i == 0
   w = Words[i]
-  cs = xmap.make_choices(w)
-  if Choices[i] == cs.size
-    Choices[i] = 0
+  choices = xmap.make_choices(w)
+  if Trace[i] == choices.size
+    Trace[i] = 0
     i -= 1
-    Choices[i] += 1
+    Trace[i] += 1
     xmap.pop
   else
-    xmap.push(cs[Choices[i]])
+    xmap.push(choices[Trace[i]])
     i += 1
   end
   _counts += 1
