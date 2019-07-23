@@ -67,19 +67,16 @@ class Xmap
     # 平行测试
     @xwords.each do |xw|
       next if new_xword.vertical != xw.vertical
-      d = new_xword.vertical ? (new_xword.x - xw.x) : (new_xword.y - xw.y)
-      dd = new_xword.vertical ? (new_xword.y - xw.y) : (new_xword.x - xw.x)
-      # 1. 差距在 2 行以外，直接无视
-      next if d.abs > 1
-      # 2. 差距是 1 行，不能重叠
-      if d.abs == 1
-        next if dd < 0 && dd + new_xword.size <= 0
-        next if dd > 0 && dd - xw.size >= 0
-      end
-      # 3. 差距是 0 行，不能重叠，也不能连着
-      if d == 0
-        next if dd < 0 && dd + new_xword.size <= -1
-        next if dd > 0 && dd - xw.size >= 1
+      # 4 个 临界点的坐标
+      x_min = new_xword.vertical ? new_xword.x - 1 : new_xword.x - xw.size
+      x_max = new_xword.vertical ? new_xword.x + 1 : new_xword.x + new_xword.size
+      y_min = new_xword.vertical ? new_xword.y - xw.size : new_xword.y - 1
+      y_max = new_xword.vertical ? new_xword.y + new_xword.size : new_xword.y + 1
+      # 超出临界点之外
+      next if xw.x < x_min || xw.x > x_max || xw.y < y_min || xw.y > y_max
+      # 在临界点上
+      if xw.x == x_min || xw.x == x_max
+        next if xw.y == y_min || xw.y == y_max
       end
       return false
     end
@@ -88,19 +85,19 @@ class Xmap
       next if new_xword.vertical == xw.vertical
       h, v = new_xword.vertical ? [xw, new_xword] : [new_xword, xw]
       # 4 个 临界点的坐标
-      vx_min = h.x - 1
-      vx_max = h.x + h.size
-      vy_min = h.y - v.size
-      vy_max = h.y + 1
+      x_min = h.x - 1
+      x_max = h.x + h.size
+      y_min = h.y - v.size
+      y_max = h.y + 1
       # 超出临界点之外
-      next if v.x < vx_min || v.x > vx_max || v.y < vy_min || v.y > vy_max
+      next if v.x < x_min || v.x > x_max || v.y < y_min || v.y > y_max
       # 在临界点上
-      if v.x == vx_min || v.x == vx_max
-        next if v.y == vy_min || v.y == vy_max
+      if v.x == x_min || v.x == x_max
+        next if v.y == y_min || v.y == y_max
         return false
       end
-      if v.y == vy_min || v.y == vy_max
-        # next if v.x == vx_min || v.x == vx_max
+      if v.y == y_min || v.y == y_max
+        # next if v.x == x_min || v.x == x_max
         return false
       end
       # 有交叉点
@@ -109,7 +106,7 @@ class Xmap
       next if char_h == char_v
       return false
     end
-
+    # 通过测试
     return true
   end
 
