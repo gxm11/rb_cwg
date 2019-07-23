@@ -34,7 +34,7 @@ Higher Performance. (Or you think ruby is fast enough?)
 ## Example
 The `crossword.txt` in project folder is generate by `ruby main.rb -s 19 > ./crossword.txt`.
 
-Try `ruby main.rb -s 18` to get:
+Try `ruby main.rb -s 18` to obtain:
 ```txt
 Run 7472859 iterations in 4933.88 sec.
 Xmap Shape: 18 x 18
