@@ -30,11 +30,12 @@ Output_File ||= "./crossword.json"
 # Read word_list
 Words = File.read(Input_File).split(/\s*\n/)
 Words_Size = Words.size
+puts "Load #{Words_Size} words."
 
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
 
-Choices = [0] * Words_Size
+Trace = [0] * Words_Size
 
 xmap = Xmap.new(Xmap_Size, Words[0])
 
@@ -45,14 +46,14 @@ t = Time.now
 # try to put each word in Xmap
 until i == Words_Size || i == 0
   w = Words[i]
-  cs = xmap.make_choices(w)
-  if Choices[i] == cs.size
-    Choices[i] = 0
+  choices = xmap.make_choices(w)
+  if Trace[i] == choices.size
+    Trace[i] = 0
     i -= 1
-    Choices[i] += 1
-    xmap.xwords.pop
+    Trace[i] += 1
+    xmap.pop
   else
-    xmap.xwords << cs[Choices[i]]
+    xmap.push(choices[Trace[i]])
     i += 1
   end
   _counts += 1
