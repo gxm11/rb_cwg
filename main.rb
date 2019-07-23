@@ -2,15 +2,23 @@
 require "json"
 require_relative "xmap"
 
-# Read word_list
-
 # Read args
 ARGV.each_with_index do |text, i|
   case text
-  when "-s" then Xmap_Size = ARGV[i + 1].to_i
-  when "-p" then Char_Weight = ARGV[i + 1].to_f
   when "-i" then Input_File = ARGV[i + 1]
   when "-o" then Output_File = ARGV[i + 1]
+  when "-s" then Xmap_Size = ARGV[i + 1].to_i
+  when "-p" then Char_Weight = ARGV[i + 1].to_f
+  when /^\-/
+    puts <<~HELP
+           Github: https://github.com/gxm11/rb_cwg
+           Usage:
+             -i Input Word List
+             -o Output Json
+             -s Maximum Xmap Size
+             -p Tuning Parameter
+         HELP
+    exit
   end
 end
 
@@ -19,6 +27,7 @@ Char_Weight ||= 0.1
 Input_File ||= "./word_list.txt"
 Output_File ||= "./crossword.json"
 
+# Read word_list
 Words = File.read(Input_File).split(/\s*\n/)
 Words_Size = Words.size
 
@@ -49,7 +58,7 @@ until i == Words_Size || i == 0
   _counts += 1
 end
 
-puts "Run %d times, cost %.2f sec." % [_counts, Time.now - t]
+puts "Run %d iterations in %.2f sec." % [_counts, Time.now - t]
 
 if i == 0
   puts "Failed to generate."
