@@ -86,3 +86,26 @@ boxer.coconut.d..t
 .t.......t....g..s
 ....blessed.sperm.
 ```
+
+### v1.2
+Load 30 words.
+Run 7472859 iterations in 1265.03 sec.
+Xmap Shape: 18 x 18
+..b....sperm......
+norman...x..stiffs
+..i....h.c...h...p
+c.duck.o.a.d.i.c.a
+o.g....v.l.e.r.a.n
+creosote.i.n.d.p.k
+o...p..r.b.n...r.i
+n.b.a..crucifixion
+u.l.m..r.r.s...c.g
+t.e....a..f....o..
+..s..k.f.wobbler.d
+castanets.r.a..n.e
+a.e..i....k.p.h..i
+m.d..g...l..t.i..r
+e....g...l.finland
+l.boxer..a..s.t..r
+o.o..t...m..t.e..e
+t.b..socrates.reg.

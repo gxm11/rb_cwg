@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 class Xmap
   Xword = Struct.new(:word, :x, :y, :vertical) do
     def size
@@ -66,6 +65,37 @@ class Xmap
       end
     end
     return choices
+  end
+
+  if RUBY_PLATFORM !~ /cygwin|mswin|mingw|bccwin|wince|emx/
+    require "parallel"
+
+    def make_choices(text)
+      choices = []
+      a_text = text.split("")
+
+      Parallel.each(@xwords) do |xword|
+        a_xword = xword.chars
+        a = a_xword & a_text
+        next if a.empty?
+        # select all possible xwords
+        a_xword.each_with_index do |char, i|
+          next if !a.include?(char)
+          a_text.each_with_index do |_char, j|
+            next if char != _char
+            if xword.vertical
+              new_xword = Xword.new(text, xword.x - j, xword.y + i, false)
+            else
+              new_xword = Xword.new(text, xword.x + i, xword.y - j, true)
+            end
+            if consist_after?(new_xword)
+              choices << new_xword
+            end
+          end
+        end
+      end
+      return choices
+    end
   end
 
   def consist_after?(new_xword)
