@@ -60,34 +60,10 @@ o.o..t...m..t.e..e
 t.b..socrates.reg.
 ```
 
-### v1.1
-> 3700 iters/s
-
-```txt
-Load 30 words.
-Run 49867859 iterations in 13459.03 sec.
-Xmap Shape: 18 x 18
-....third.spam..n.
-.s......e.t.....o.
-fork..h.n.i.e.d.r.
-.c..l.o.n.f.x.u.m.
-.r..l.v.i.f.c.c.a.
-castanets.spanking
-.t..m.r.....l.....
-reg.a.crucifixion.
-.s.h..r.....b.....
-..finland...u..b.k
-.c.l..f..capricorn
-baptists.r.....b.i
-.m.e.....e....b..g
-deirdre.wobbler..g
-.l.......s....i..e
-boxer.coconut.d..t
-.t.......t....g..s
-....blessed.sperm.
-```
 
 ### v1.2
+> 5900 iters/s
+
 Load 30 words.
 Run 7472859 iterations in 1265.03 sec.
 Xmap Shape: 18 x 18
