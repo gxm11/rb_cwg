@@ -28,17 +28,15 @@ Script finished with faliure means there's no solution for the word list.
 - Retry with another p
 - Retry with less words
 
-## Next
-Higher Performance. (Or you think ruby is fast enough?)
-
 ## Example
 The `crossword.txt` in project folder is generate by `ruby main.rb -s 19 > ./crossword.txt`.
 
 ## Performance
-The 18x18 Crossmap was found in each version. 
+Using `ruby main.rb -s 18` to obtain a 18x18 crossword map.
 
 ### v1.0
-Try `ruby main.rb -s 18` to obtain:
+> 1500 iters/s
+
 ```txt
 Run 7472859 iterations in 4933.88 sec.
 Xmap Shape: 18 x 18
@@ -63,6 +61,8 @@ t.b..socrates.reg.
 ```
 
 ### v1.1
+> 3700 iters/s
+
 ```txt
 Load 30 words.
 Run 49867859 iterations in 13459.03 sec.
