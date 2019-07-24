@@ -26,8 +26,8 @@ class Xmap
 
   def refresh_xwords_maxmin
     @cache_maxmin.x_min = @xwords.collect(&:x).min
-    @cache_maxmin.x_max = @xwords.collect { |xw| xw.x + (xw.vertical ? 1 : xw.size) - 1 }.max
     @cache_maxmin.y_min = @xwords.collect(&:y).min
+    @cache_maxmin.x_max = @xwords.collect { |xw| xw.x + (xw.vertical ? 1 : xw.size) - 1 }.max
     @cache_maxmin.y_max = @xwords.collect { |xw| xw.y + (xw.vertical ? xw.size : 1) - 1 }.max
   end
 
@@ -74,11 +74,10 @@ class Xmap
 
   # Part1: 判断是否出界
   def consist_after_part1(new_xword)
-    new_xword_vertical = new_xword.vertical
     # 1. 判断是否出界
-    if new_xword_vertical
+    if new_xword.vertical
       y_min = [@cache_maxmin.y_min, new_xword.y].min
-      y_max = [@cache_maxmin.y_max, new_xword.y + new_xword.size].max
+      y_max = [@cache_maxmin.y_max, new_xword.y + new_xword.size - 1].max
       if y_max - y_min >= @max_size
         return false
       end

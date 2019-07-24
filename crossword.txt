@@ -1,5 +1,5 @@
 Load 30 words.
-Run 2635 iterations in 0.37 sec.
+Run 7699 iterations in 1.11 sec.
 Xmap Shape: 19 x 19
 ...b.......b..b...s
 sperm...f.camelot.t
