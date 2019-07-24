@@ -10,12 +10,15 @@ ARGV.each_with_index do |text, i|
   when "-p" then Char_Weight = ARGV[i + 1].to_f
   when "-h"
     puts <<~HELP
+           Crossword Generator v1.2           
+           Author: guoxiaomi
            Github: https://github.com/gxm11/rb_cwg
            Usage:
              -i Input Word List
              -o Output Json
              -s Maximum Xmap Size
              -p Tuning Parameter
+             -h Show Help Message
          HELP
     exit
   end
