@@ -64,6 +64,7 @@ t.b..socrates.reg.
 ### v1.2
 > 5900 iters/s
 
+```txt
 Load 30 words.
 Run 7472859 iterations in 1265.03 sec.
 Xmap Shape: 18 x 18
@@ -85,3 +86,4 @@ e....g...l.finland
 l.boxer..a..s.t..r
 o.o..t...m..t.e..e
 t.b..socrates.reg.
+```
