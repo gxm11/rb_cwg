@@ -1,5 +1,4 @@
 # encoding: utf-8
-require "json"
 require_relative "xmap"
 
 # Read args
@@ -72,10 +71,18 @@ if i == 0
   puts "Failed to generate."
 else
   xmap.render
-  h = xmap.xwords.collect { |xw|
-    { word: xw.word, x: xw.x, y: xw.y, vertical: xw.vertical }
+  j = xmap.xwords.collect { |xw|
+    d = <<-JSON
+  {
+    "word": "#{xw.word}",
+    "x": #{xw.x},
+    "y": #{xw.y},
+    "vertical": #{xw.vertical}
   }
+  JSON
+    d.rstrip()
+  }.join(",\n")
   File.open(Output_File, "w") do |f|
-    f << JSON.pretty_generate(h)
+    f << "[\n" << j << "\n]"
   end
 end
