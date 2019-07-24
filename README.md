@@ -34,6 +34,10 @@ Higher Performance. (Or you think ruby is fast enough?)
 ## Example
 The `crossword.txt` in project folder is generate by `ruby main.rb -s 19 > ./crossword.txt`.
 
+## Performance
+The 18x18 Crossmap was found in each version. 
+
+### v1.0
 Try `ruby main.rb -s 18` to obtain:
 ```txt
 Run 7472859 iterations in 4933.88 sec.
@@ -56,4 +60,29 @@ e....g...l.finland
 l.boxer..a..s.t..r
 o.o..t...m..t.e..e
 t.b..socrates.reg.
+```
+
+### v1.1
+```txt
+Load 30 words.
+Run 49867859 iterations in 13459.03 sec.
+Xmap Shape: 18 x 18
+....third.spam..n.
+.s......e.t.....o.
+fork..h.n.i.e.d.r.
+.c..l.o.n.f.x.u.m.
+.r..l.v.i.f.c.c.a.
+castanets.spanking
+.t..m.r.....l.....
+reg.a.crucifixion.
+.s.h..r.....b.....
+..finland...u..b.k
+.c.l..f..capricorn
+baptists.r.....b.i
+.m.e.....e....b..g
+deirdre.wobbler..g
+.l.......s....i..e
+boxer.coconut.d..t
+.t.......t....g..s
+....blessed.sperm.
 ```
