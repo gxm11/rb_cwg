@@ -35,31 +35,38 @@ puts "Load #{Words_Size} words."
 # Sort words
 Words.sort_by! { |w| -w.size - w.chars.uniq.size * Char_Weight }
 
-Trace = [0] * Words_Size
-
 xmap = Xmap.new(Xmap_Size, Words[0])
 
-i = 1
-_counts = 0
-t = Time.now
+# cache choices
+choice = []
+choice_index = [0] * Words_Size
 
-# try to put each word in Xmap
-until i == Words_Size || i == 0
-  w = Words[i]
-  choices = xmap.make_choices(w)
-  if Trace[i] == choices.size
-    Trace[i] = 0
+i = 1
+choice[i] = xmap.make_choices(Words[i])
+
+# try to put word in order into Xmap
+_counts = 0
+t_start = Time.now
+loop do
+  _counts += 1
+
+  if choice_index[i] == choice[i].size
+    choice_index[i] = 0
     i -= 1
-    Trace[i] += 1
+    break if i == 0
+    choice_index[i] += 1
+    choice.pop
     xmap.pop
   else
-    xmap.push(choices[Trace[i]])
+    xmap.push(choice[i][choice_index[i]])
     i += 1
+    break if i == Words_Size
+    choice[i] = xmap.make_choices(Words[i])
   end
-  _counts += 1
 end
+t_end = Time.now
 
-puts "Run %d iterations in %.2f sec." % [_counts, Time.now - t]
+puts "Run %d iterations in %.2f sec." % [_counts, t_end - t_start]
 
 if i == 0
   puts "Failed to generate."
