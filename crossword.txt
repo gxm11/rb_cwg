@@ -1,22 +1,22 @@
 Load 30 words.
-Run 7699 iterations in 1.11 sec.
+Run 77958 iterations in 11.93 sec.
 Xmap Shape: 19 x 19
-...b.......b..b...s
-sperm...f.camelot.t
-p..i.f..o..p..e...i
-a..deirdre.t..s...f
-m..g.n..k..i..s...f
-...e.l.r...s.dennis
-.w...a.e...t..d....
-bob.kniggets.......
-.b...d...x.........
-.b.c...h.c...s.duck
-.l.o...o.a.c.p...a.
-.e.c.b.v.llama...s.
-creosote.i.p.n.t.t.
-...n.x.r.b.r.k.h.a.
-...u.e.crucifixion.
-hilter.r.r.c.n.r.e.
-.......a...o.g.d.t.
-.......f...r.....s.
-..socrates.norman..
+.w......third......
+boxer....i........s
+.b....h..l.reg..c.p
+.b.creosote.x.llama
+.l....v..e..c...s.m
+deirdre..r..a.k.t..
+.r....r.....l.n.a..
+..s...crucifixion..
+..p.f.r..a..b.g.e..
+d.e.i.a..p..u.g.t..
+u.r.n.f..r..r.e.s..
+camelot..i.b..t....
+k...a..socrates..c.
+....n.d..o.p...f.o.
+.bridge..r.t...o.c.
+......n..n.i...r.o.
+.norman.b..spanking
+......i.o..t.....u.
+.stiffs.blessed..t.

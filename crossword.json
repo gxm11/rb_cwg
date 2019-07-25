@@ -12,15 +12,9 @@
     "vertical": true
   },
   {
-    "word": "excalibur",
-    "x": 2,
-    "y": -7,
-    "vertical": true
-  },
-  {
     "word": "capricorn",
-    "x": 4,
-    "y": -4,
+    "x": 3,
+    "y": 0,
     "vertical": true
   },
   {
@@ -30,153 +24,159 @@
     "vertical": true
   },
   {
-    "word": "spanking",
+    "word": "excalibur",
     "x": 6,
     "y": -5,
     "vertical": true
   },
   {
-    "word": "socrates",
-    "x": -5,
-    "y": 4,
-    "vertical": false
-  },
-  {
     "word": "kniggets",
-    "x": -3,
-    "y": -7,
-    "vertical": false
-  },
-  {
-    "word": "baptists",
-    "x": 4,
-    "y": -14,
+    "x": 8,
+    "y": -2,
     "vertical": true
   },
   {
     "word": "creosote",
-    "x": -7,
+    "x": -3,
+    "y": -4,
+    "vertical": false
+  },
+  {
+    "word": "socrates",
+    "x": 1,
+    "y": 5,
+    "vertical": false
+  },
+  {
+    "word": "baptists",
+    "x": 5,
+    "y": 4,
+    "vertical": true
+  },
+  {
+    "word": "spanking",
+    "x": 5,
+    "y": 9,
+    "vertical": false
+  },
+  {
+    "word": "deirdre",
+    "x": -6,
     "y": -2,
     "vertical": false
   },
   {
     "word": "camelot",
-    "x": 3,
-    "y": -13,
+    "x": -6,
+    "y": 4,
     "vertical": false
   },
   {
-    "word": "wobbler",
-    "x": -6,
-    "y": -8,
+    "word": "blessed",
+    "x": 2,
+    "y": 11,
+    "vertical": false
+  },
+  {
+    "word": "coconut",
+    "x": 11,
+    "y": 5,
     "vertical": true
   },
   {
     "word": "finland",
     "x": -2,
-    "y": -12,
-    "vertical": true
-  },
-  {
-    "word": "blessed",
-    "x": 7,
-    "y": -14,
-    "vertical": true
-  },
-  {
-    "word": "coconut",
-    "x": -4,
-    "y": -5,
-    "vertical": true
-  },
-  {
-    "word": "deirdre",
-    "x": -4,
-    "y": -11,
-    "vertical": false
-  },
-  {
-    "word": "hilter",
-    "x": -7,
     "y": 1,
-    "vertical": false
+    "vertical": true
+  },
+  {
+    "word": "wobbler",
+    "x": -5,
+    "y": -7,
+    "vertical": true
   },
   {
     "word": "bridge",
-    "x": -4,
-    "y": -14,
-    "vertical": true
-  },
-  {
-    "word": "norman",
-    "x": 4,
-    "y": 4,
+    "x": -5,
+    "y": 7,
     "vertical": false
   },
   {
     "word": "dennis",
-    "x": 6,
-    "y": -9,
-    "vertical": false
-  },
-  {
-    "word": "stiffs",
-    "x": 11,
-    "y": -14,
+    "x": 0,
+    "y": 6,
     "vertical": true
   },
   {
-    "word": "third",
-    "x": 8,
-    "y": -2,
+    "word": "hilter",
+    "x": 3,
+    "y": -7,
+    "vertical": true
+  },
+  {
+    "word": "stiffs",
+    "x": -5,
+    "y": 11,
+    "vertical": false
+  },
+  {
+    "word": "norman",
+    "x": -5,
+    "y": 9,
+    "vertical": false
+  },
+  {
+    "word": "sperm",
+    "x": -4,
+    "y": 0,
     "vertical": true
   },
   {
     "word": "boxer",
-    "x": -2,
-    "y": -3,
-    "vertical": true
-  },
-  {
-    "word": "sperm",
-    "x": -7,
-    "y": -13,
+    "x": -6,
+    "y": -6,
     "vertical": false
   },
   {
     "word": "llama",
-    "x": 2,
-    "y": -3,
+    "x": 8,
+    "y": -4,
     "vertical": false
   },
   {
-    "word": "duck",
-    "x": 8,
-    "y": -5,
+    "word": "third",
+    "x": 2,
+    "y": -7,
     "vertical": false
   },
   {
     "word": "spam",
-    "x": -7,
-    "y": -13,
+    "x": 12,
+    "y": -6,
+    "vertical": true
+  },
+  {
+    "word": "duck",
+    "x": -6,
+    "y": 2,
     "vertical": true
   },
   {
     "word": "fork",
-    "x": 1,
-    "y": -13,
+    "x": 9,
+    "y": 6,
     "vertical": true
   },
   {
     "word": "reg",
-    "x": 0,
-    "y": -9,
-    "vertical": true
+    "x": 5,
+    "y": -5,
+    "vertical": false
   },
   {
     "word": "bob",
-    "x": -7,
-    "y": -7,
-    "vertical": false
+    "x": 2,
+    "y": 9,
+    "vertical": true
   }
 ]

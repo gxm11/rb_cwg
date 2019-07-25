@@ -14,13 +14,10 @@ class Xmap
 
   attr_reader :xwords
 
-  def initialize(max_size, first_word = "")
+  def initialize(max_size)
     @max_size = max_size
     @xwords = []
     @cache_maxmin = Cache_Maxmin.new(0, 0, 0, 0)
-    if !first_word.empty?
-      push(Xword.new(first_word, 0, 0, false))
-    end
   end
 
   def refresh_xwords_maxmin
